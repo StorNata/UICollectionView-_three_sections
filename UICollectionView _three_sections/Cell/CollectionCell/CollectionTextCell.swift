@@ -16,7 +16,6 @@ class CollectionTextCell: UICollectionViewCell {
         didSet {
             textLabel?.text = textModel?.title
             textLabel?.textColor = textModel?.color
-           // textLabel?.backgroundColor = textModel?.color
         }
     }
     

@@ -27,14 +27,9 @@ class ViewController: UIViewController {
         self.collectionView?.register(UINib(nibName: "RectangleCell", bundle: nil), forCellWithReuseIdentifier: "cell_id_2")
         self.collectionView?.register(UINib(nibName: "TextCell", bundle: nil), forCellWithReuseIdentifier: "cell_id_3")
         
-        
-        let layout = collectionView?.collectionViewLayout
-        
-        
     }
-    
 }
-
+//MARK - Data Sours
 extension ViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
@@ -70,7 +65,7 @@ extension ViewController: UICollectionViewDataSource {
         }
     }
 }
-
+//MARK: - Delegat Flow Layout
 extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -78,7 +73,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return spacing
+        switch section {
+        case 2:
+            return 10
+        default:
+            return spacing
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -86,54 +86,37 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //
-        
+      
         switch indexPath.section {
             
         case 0:
-            let columCount = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 4 : 4
-            
+            let columCount = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 4 : 8
             
             let cellWidth = (collectionView.frame.size.width - 2 * spacing - CGFloat((columCount - 1)) * spacing) / CGFloat(columCount)
-            
-            
+        
             func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
                 return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             }
             return CGSize.init(width: cellWidth - 0.5, height: cellWidth)
         case 1:
             let columCount = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 2 : 4
-            //
-//                             return CGSize(width: 100,
-//                             height: collectionView.frame.size.width * 2)
-            //
             let cellWidth = (collectionView.frame.size.width - 2 * spacing - CGFloat((columCount - 1)) * spacing) / CGFloat(columCount)
-
-
-            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-                return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-            }
-            return CGSize.init(width: cellWidth - 0.5, height: cellWidth)
+            
+            return CGSize.init(width: cellWidth, height: cellWidth / 2)
             
         default:
-                        let columCount = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 1 : 2
             
-            
-                         let cellWidth = (collectionView.frame.size.width - 2 * spacing - CGFloat((columCount - 1)) * spacing) / CGFloat(columCount)
-            
-            
-            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-                return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            if let cell = Bundle.main.loadNibNamed("TextCell", owner: nil, options: nil)?.first as? CollectionTextCell {
+   //плавайющая ячейка (по длине слова)
+                cell.textModel = dataSource[indexPath.item]
+                let size = cell.systemLayoutSizeFitting(CGSize(width: 0, height: 40), withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .required)
+                
+                return size
+                
+            } else {
+                return CGSize.zero
             }
-            return CGSize.init(width: cellWidth - 0.5, height: cellWidth)
-            
         }
-        
     }
-    //MARK: - UICollectionViewDelegate
-       func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-           print(indexPath)
-       }
 }
-
 

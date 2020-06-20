@@ -11,14 +11,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" id="gTV-IL-0wX" customClass="CollectionTextCell" customModule="UICollectionView__three_sections" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="303" height="90"/>
+            <rect key="frame" x="0.0" y="0.0" width="145" height="40"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="303" height="90"/>
+                <rect key="frame" x="0.0" y="0.0" width="145" height="40"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75s-Tl-f9A">
-                        <rect key="frame" x="10" y="10" width="283" height="70"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75s-Tl-f9A">
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -26,17 +26,17 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="75s-Tl-f9A" secondAttribute="bottom" constant="10" id="OQv-o8-fjD"/>
-                <constraint firstItem="75s-Tl-f9A" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="g45-Kz-cdo"/>
-                <constraint firstAttribute="trailing" secondItem="75s-Tl-f9A" secondAttribute="trailing" constant="10" id="gm8-cf-fCs"/>
-                <constraint firstItem="75s-Tl-f9A" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="jti-Ou-w9p"/>
+                <constraint firstAttribute="bottom" secondItem="75s-Tl-f9A" secondAttribute="bottom" id="OQv-o8-fjD"/>
+                <constraint firstItem="75s-Tl-f9A" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="g45-Kz-cdo"/>
+                <constraint firstAttribute="trailing" secondItem="75s-Tl-f9A" secondAttribute="trailing" id="gm8-cf-fCs"/>
+                <constraint firstItem="75s-Tl-f9A" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jti-Ou-w9p"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="303" height="90"/>
+            <size key="customSize" width="145" height="52"/>
             <connections>
                 <outlet property="textLabel" destination="75s-Tl-f9A" id="wrq-kI-fBL"/>
             </connections>
-            <point key="canvasLocation" x="321.01449275362319" y="99.107142857142847"/>
+            <point key="canvasLocation" x="-87.681159420289859" y="12.053571428571429"/>
         </collectionViewCell>
     </objects>
 </document>
